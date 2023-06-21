@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <limits.h>
 #define MAX_LINE_LENGTH 1024
 
 /**
@@ -58,15 +59,20 @@ void initialize_infos(info_t *info);
 void process_file(const char *file_path, info_t *info);
 void line_parser(info_t *info, char *line);
 void prints_error_message(const char *message);
-void push_opcode(stack_t **stack, unsigned int line_number);
-void pall_opcode(stack_t **stack, unsigned int line_number);
 void process_instructions(info_t *info);
+int _isdigit(const char *str);
 /* push & pall*/
+
 void pall_func(stack_t **stack, unsigned int line_number);
 void push_func(stack_t **stack, unsigned int line_number);
+void push(stack_t **stack, int num);
+void pall(stack_t **stack, int num);
 
 /* linked list */
 void print_list(stack_t *head);
 stack_t *insert_at_list_start(stack_t **head, int num);
 void free_dlistint(stack_t *head);
+
+/* erros */
+void prints_error_message_with_args(const char *error_message, info_t *info);
 #endif /*MONTY_H*/
