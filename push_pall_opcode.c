@@ -38,7 +38,6 @@ void push_func(stack_t **stack, unsigned int line_number)
  */
 void pall_func(stack_t **stack, unsigned int line_number)
 {
-	printf("Hey did a pall\n");
 	pall(stack, line_number);
 }
 /**
@@ -48,7 +47,6 @@ void pall_func(stack_t **stack, unsigned int line_number)
  */
 void push(stack_t **head, int num)
 {
-	printf("hey this is a push\n");
 	insert_at_list_start(head, num);
 }
 /**
