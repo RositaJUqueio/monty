@@ -66,6 +66,7 @@ void prints_error_message(const char *message);
 void process_instructions(info_t *info);
 int _isdigit(const char *str);
 void free_all(info_t *info);
+void free_line_tokens(info_t *info);
 /* push & pall*/
 
 void pall_func(stack_t **stack, unsigned int line_number);

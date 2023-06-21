@@ -23,21 +23,21 @@ int main(int argc, char *argv[])
 }
 
 /**
+ * free_line_tokens - frees malloced variables before exits
+ * @info: struct for global varibles
+ */
+void free_line_tokens(info_t *info)
+{
+	free(info->line_tokens);
+	info->line_tokens = NULL;
+}
+/**
  * free_all - frees malloced variables before exits
  * @info: struct for global varibles
  */
 void free_all(info_t *info)
 {
-	int i = 0;
-
-	while (info->line_tokens[i] != NULL)
-	{
-		free(info->line_tokens[i]);	
-		i++;
-	}
-	free(info->line_tokens);
-	info->line_tokens = NULL;
-
 	free_dlistint(info->stack);
 	fclose(info->fd);
 }
+

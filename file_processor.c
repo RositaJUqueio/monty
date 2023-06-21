@@ -40,6 +40,7 @@ void process_file(const char *file_path, info_t *info)
 
 		line_parser(info, info->line);
 		process_instructions(info);
+		free_line_tokens(info);
 	}
 	free_all(info);
 }
@@ -52,12 +53,8 @@ void process_file(const char *file_path, info_t *info)
 void line_parser(info_t *info, char *line)
 {
 	int idx = 0, i = 0;
-	char *tokens, *line_cpy;
+	char *tokens, line_cpy[MAX_LINE_LENGTH];
 	char *delim = " $\t\n\r";
-
-	line_cpy = malloc(sizeof(strlen(line)));
-	if (line_cpy == NULL)
-		prints_error_message("Error: malloc failed");
 
 	strcpy(line_cpy, line);
 	tokens = strtok(line_cpy, delim);
