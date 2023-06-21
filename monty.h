@@ -40,5 +40,7 @@ typedef struct instruction_s
 int main(int argc, char *argv[]);
 void process_file(const char *file_path);
 void prints_error_message(const char *message);
+void push_opcode(stack_t **stack, unsigned int line_number);
+void pall_opcode(stack_t **stack, unsigned int line_number);
 
 #endif /*MONTY_H*/

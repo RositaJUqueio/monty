@@ -9,7 +9,7 @@
  */
 void prints_error_message(const char *message)
 {
-    fprintf(stderr, "%s\n", message);
-    exit(EXIT_FAILURE);
+	fprintf(stderr, "%s\n", message);
+	exit(EXIT_FAILURE);
 }
 
