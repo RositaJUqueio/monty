@@ -18,9 +18,9 @@
  */
 typedef struct stack_s
 {
-        int n;
-        struct stack_s *prev;
-        struct stack_s *next;
+	int n;
+	struct stack_s *prev;
+	struct stack_s *next;
 } stack_t;
 
 /**
@@ -33,14 +33,18 @@ typedef struct stack_s
  */
 typedef struct instruction_s
 {
-        char *opcode;
-        void (*f)(stack_t **stack, unsigned int line_number);
+	char *opcode;
+	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
 /**
  *  struct info_s - global variables
- *  @fd: - file descriptor
- *  @line_tokens - array to store line tokens
+ *  @fd:  file descriptor
+ *  @line_tokens:  array to store line tokens
+ *  @line: buffer to hold line read from file
+ *  @fd: stream descriptor for open files
+ *  @line_number: line number to be read
+ *  @stack: stack data structure
  *  Description - global vars
 */
 typedef struct info_s
@@ -61,6 +65,7 @@ void line_parser(info_t *info, char *line);
 void prints_error_message(const char *message);
 void process_instructions(info_t *info);
 int _isdigit(const char *str);
+void free_all(info_t *info);
 /* push & pall*/
 
 void pall_func(stack_t **stack, unsigned int line_number);

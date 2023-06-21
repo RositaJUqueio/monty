@@ -14,16 +14,17 @@ void prints_error_message(const char *message)
 }
 
 /**
- * prints_error_message - prints error message
+ * prints_error_message_with_args - prints error message
  *  and exits
  * @message: pointer to string
+ * @info: struct for global variables
  */
 void prints_error_message_with_args(const char *message, info_t *info)
 {
-        char error[100];
+	char error[100];
 
 	sprintf(error, message, info->line_number, info->line_tokens[0]);
-        prints_error_message(error);
+	prints_error_message(error);
 }
 
 /**

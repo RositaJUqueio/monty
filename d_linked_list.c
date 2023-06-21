@@ -1,5 +1,10 @@
 #include "monty.h"
 
+/**
+ * print_list - prints list content
+ * @head: head of list to be printed
+ * Return: nothing
+ */
 void print_list(stack_t *head)
 {
 	stack_t *current = head;
@@ -11,6 +16,12 @@ void print_list(stack_t *head)
 	}
 }
 
+/**
+ * insert_at_list_start - inserts nodes at the top of the stack
+ * @head: head of list to be inserted
+ * @num: number to be inserted
+ * Return:  the address of the new node
+ */
 stack_t *insert_at_list_start(stack_t **head, int num)
 {
 	stack_t *current = *head;
@@ -19,7 +30,7 @@ stack_t *insert_at_list_start(stack_t **head, int num)
 	new_node = malloc(sizeof(stack_t));
 	if (new_node == NULL)
 	{
-		return NULL;
+		return (NULL);
 	}
 	new_node->n = num;
 	new_node->next = NULL;
@@ -29,8 +40,8 @@ stack_t *insert_at_list_start(stack_t **head, int num)
 	{
 		new_node->next = *head;
 		*head = new_node;
-	} 
-	else 
+	}
+	else
 	{
 		while (current != NULL)
 		{

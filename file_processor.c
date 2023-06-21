@@ -1,6 +1,11 @@
 /* Authors: Rosita Uqueio, Israel Nanor */
 #include "monty.h"
 
+/**
+ * initialize_infos - initiazes global variables
+ * @info: global program data
+ * Returns: nothing
+ */
 void initialize_infos(info_t *info)
 {
 	info->fd = NULL;
@@ -11,6 +16,7 @@ void initialize_infos(info_t *info)
 /**
  * process_file - opens file,reads each line
  * and closes the file.
+ * @info: global variable struct
  * @file_path: given file path
  */
 void process_file(const char *file_path, info_t *info)
@@ -31,14 +37,18 @@ void process_file(const char *file_path, info_t *info)
 	{
 		info->line_number += 1;
 		info->line[strcspn(info->line, "\n")] = '\0';
-		/*printf("%s\n", info->line);*/
+
 		line_parser(info, info->line);
 		process_instructions(info);
-	}	
-	/*we need to add code to read each line of code*/
-	fclose(info->fd);
+	}
+	free_all(info);
 }
-
+/**
+ * line_parser - splits line into tokens
+ * @info: global program data
+ * @line: read line to split into tokens
+ * Return: nothing
+ */
 void line_parser(info_t *info, char *line)
 {
 	int idx = 0, i = 0;
@@ -58,8 +68,8 @@ void line_parser(info_t *info, char *line)
 	}
 
 	info->line_tokens = malloc(sizeof(char) * (idx + 1));
-	if (info->line_tokens== NULL)
-	{
+	if (info->line_tokens == NULL)
+	{	free_all(info);
 		prints_error_message("Error: malloc failed");
 	}
 	strcpy(line_cpy, line);
@@ -73,7 +83,11 @@ void line_parser(info_t *info, char *line)
 	info->line_tokens[i] = NULL;
 
 }
-
+/**
+ * process_instructions - handles instructions to be performed per opcode
+ * @info: global program data
+ * Return: nothing
+ */
 void process_instructions(info_t *info)
 {
 	int i = 0;
@@ -89,14 +103,11 @@ void process_instructions(info_t *info)
 	{
 		if (strcmp(instructions[i].opcode, info->line_tokens[0]) == 0)
 		{
-	   		 instructions[i].f(&(info->stack), info->line_number);
-	   		 return;
+			instructions[i].f(&(info->stack), info->line_number);
+			return;
 		}
 		i++;
 	}
-
-	sprintf(error, "L%u: unknown instruction %s", info->line_number, info->line_tokens[0]);
-        prints_error_message(error);
-	/*exit(EXIT_FAILURE)*/;
-
+	free_all(info);
+	prints_error_message("L%u: unknown instruction %s", info);
 }
