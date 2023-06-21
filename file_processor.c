@@ -1,6 +1,12 @@
 /* Authors: Rosita Uqueio, Israel Nanor */
 #include "monty.h"
 
+void initialize_infos()
+{
+	info->fd = NULL;
+	info->line = NULL;
+}
+
 /**
  * process_file - opens file,reads each line
  * and closes the file.
@@ -9,15 +15,21 @@
 void process_file(const char *file_path)
 {
 	/*Opens the file */
-	FILE *file = fopen(file_path, "r");
+	size_t buflen;
+	info->fd = fopen(file_path, "r");
 
-	if (file == NULL)
+	if (info->fd == NULL)
 	{
 		char error[100];
 
 		sprintf(error, "Error: Can't open file %s", file_path);
 		prints_error_message(error);
 	}
+
+	while (getline(&(info->line), &buflen, info->fd) != -1)
+	{
+		printf("%s\n", info->line);
+	}	
 	/*we need to add code to read each line of code*/
-	fclose(file);
+	fclose(info->fd);
 }

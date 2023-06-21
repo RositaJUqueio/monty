@@ -34,10 +34,23 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-
+/**
+ *  struct info_s - global variables
+ *  @fd: - file descriptor
+ *  @line_tokens - array to store line tokens
+ *  Description - global vars
+*/
+typedef struct info_s
+{
+	FILE *fd;
+	char *line_tokens;
+	char *line;
+} info_t;
+info_t *info;
 /* Function Prototypes*/
 
 int main(int argc, char *argv[]);
+void initialize_infos();
 void process_file(const char *file_path);
 void prints_error_message(const char *message);
 void push_opcode(stack_t **stack, unsigned int line_number);
