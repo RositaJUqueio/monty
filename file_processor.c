@@ -91,7 +91,6 @@ void line_parser(info_t *info, char *line)
 void process_instructions(info_t *info)
 {
 	int i = 0;
-	char error[100];
 
 	instruction_t instructions[] = {
 		{"push", push_func},
@@ -109,5 +108,5 @@ void process_instructions(info_t *info)
 		i++;
 	}
 	free_all(info);
-	prints_error_message("L%u: unknown instruction %s", info);
+	prints_error_message_with_args("L%u: unknown instruction %s", info);
 }
