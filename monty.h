@@ -3,6 +3,8 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#define MAX_LINE_LENGTH 1024
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -44,14 +46,14 @@ typedef struct info_s
 {
 	FILE *fd;
 	char *line_tokens;
-	char *line;
+	char line[MAX_LINE_LENGTH];
 } info_t;
-info_t *info;
+info_t info;
 /* Function Prototypes*/
 
 int main(int argc, char *argv[]);
-void initialize_infos();
-void process_file(const char *file_path);
+void initialize_infos(info_t *info);
+void process_file(const char *file_path, info_t *info);
 void prints_error_message(const char *message);
 void push_opcode(stack_t **stack, unsigned int line_number);
 void pall_opcode(stack_t **stack, unsigned int line_number);

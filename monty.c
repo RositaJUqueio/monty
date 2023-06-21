@@ -15,9 +15,9 @@ int main(int argc, char *argv[])
 	if (argc != 2)
 		prints_error_message("USAGE: monty file");
 
-	initialize_infos();
+	initialize_infos(&info);
 	/*calling function to process file */
-	process_file(argv[1]);
+	process_file(argv[1], &info);
 
 	return (0);
 }
