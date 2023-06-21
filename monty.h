@@ -45,8 +45,10 @@ typedef struct instruction_s
 typedef struct info_s
 {
 	FILE *fd;
-	char *line_tokens;
+	char **line_tokens;
 	char line[MAX_LINE_LENGTH];
+	unsigned int line_number;
+	stack_t *stack;
 } info_t;
 info_t info;
 /* Function Prototypes*/
@@ -54,8 +56,17 @@ info_t info;
 int main(int argc, char *argv[]);
 void initialize_infos(info_t *info);
 void process_file(const char *file_path, info_t *info);
+void line_parser(info_t *info, char *line);
 void prints_error_message(const char *message);
 void push_opcode(stack_t **stack, unsigned int line_number);
 void pall_opcode(stack_t **stack, unsigned int line_number);
+void process_instructions(info_t *info);
+/* push & pall*/
+void pall_func(stack_t **stack, unsigned int line_number);
+void push_func(stack_t **stack, unsigned int line_number);
 
+/* linked list */
+void print_list(stack_t *head);
+stack_t *insert_at_list_start(stack_t **head, int num);
+void free_dlistint(stack_t *head);
 #endif /*MONTY_H*/
