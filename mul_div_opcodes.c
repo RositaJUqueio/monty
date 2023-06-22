@@ -68,7 +68,6 @@ void __div__(info_t *info)
 	if ((*tmp1)->n == 0)
 	{
 		free_all(info);
-		free_line_tokens(info);
 		prints_error_message_with_args("L%lu: division by zero", info);
 	}
 
