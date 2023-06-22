@@ -97,6 +97,8 @@ void sub_func(stack_t **head, unsigned int line_number);
 /* mul & div*/
 void mul(stack_t **stack, unsigned int stack_len);
 void mul_func(stack_t **head, unsigned int line_number);
+void __div__(info_t *info);
+void div_func(stack_t **head, unsigned int st_len);
 /* erros */
 void prints_error_message_with_args(const char *error_message, info_t *info);
 #endif /*MONTY_H*/
