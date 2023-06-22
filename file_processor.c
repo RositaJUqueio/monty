@@ -96,6 +96,7 @@ void process_instructions(info_t *info)
 		{"pint", pint_func},
 		{"pop", pop_func},
 		{"add", add_func},
+		{"sub", sub_func},
 		{NULL, NULL}
 	};
 

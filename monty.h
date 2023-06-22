@@ -89,9 +89,10 @@ void pint(stack_t *top);
 void pint_func(stack_t **stack, unsigned int line_number);
 
 /* add and sub */
-void add(stack_t **stack);
+void add(stack_t **stack, unsigned int stack_len);
 void add_func(stack_t **head, unsigned int line_number);
-
+void sub(stack_t **stack, unsigned int stack_len);
+void sub_func(stack_t **head, unsigned int line_number);
 /* erros */
 void prints_error_message_with_args(const char *error_message, info_t *info);
 #endif /*MONTY_H*/
