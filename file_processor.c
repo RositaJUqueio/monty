@@ -11,7 +11,6 @@ void initialize_infos(info_t *info)
 	info->fd = NULL;
 	info->line_number = 0;
 	info->stack = NULL;
-	info->stack_length = 0;
 }
 
 /**
@@ -93,24 +92,14 @@ void process_instructions(info_t *info)
 	instruction_t instructions[] = {
 		{"push", push_func},
 		{"pall", pall_func},
-		{"pint", pint_func},
 		{"pop", pop_func},
-		{"add", add_func},
-		{"sub", sub_func},
-		{"mul", mul_func},
-		{"div", div_func},
-		{"mod", mod_func},
-		{"swap", swap_func},
-		{"nop", nop_func},
+		{"pint", pint_func},
 		{NULL, NULL}
 	};
 
 	if (!info->line_tokens[0])
 		return;
-	/*if (info->line[0] == '#')
-	{
-		info->line_tokens[0] = "nop";
-	}*/
+
 	while (instructions[i].opcode != NULL)
 	{
 		if (strcmp(instructions[i].opcode, info->line_tokens[0]) == 0)

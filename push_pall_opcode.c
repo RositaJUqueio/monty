@@ -1,4 +1,3 @@
-/* Authors:  Rosita Uqueio & Israel Nanor */
 #include "monty.h"
 
 /**
@@ -23,10 +22,10 @@ void push_func(stack_t **stack, unsigned int line_number)
 		{
 			free_all(pg_data);
 			prints_error_message_with_args("L%lu: usage: push integer", pg_data);
+			return;
 		}
 
 		push(stack, push_num);
-		pg_data->stack_length += 1;
 	}
 	else
 	{
