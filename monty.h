@@ -78,10 +78,13 @@ void pall(stack_t **stack, int num);
 void print_list(stack_t *head);
 stack_t *insert_at_list_start(stack_t **head, int num);
 void free_dlistint(stack_t *head);
+void removes_from_top(stack_t **head);
 
-/*pop*/
+/*pop & pint*/
 void pop_func(stack_t **stack, unsigned int line_number);
 void pop(stack_t **head);
+void pint(stack_t *top);
+void pint_func(stack_t **stack, unsigned int line_number);
 
 /* erros */
 void prints_error_message_with_args(const char *error_message, info_t *info);

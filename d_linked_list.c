@@ -60,6 +60,25 @@ stack_t *insert_at_list_start(stack_t **head, int num)
 }
 
 /**
+ * removes_from_top - removes the first node from the list
+ * @head: head of list
+ */
+void removes_from_top(stack_t **head)
+{
+	if (*head != NULL)
+	{
+		stack_t *temp = *head;
+		*head = (*head)->next;
+
+		if (*head != NULL)
+			(*head)->prev = NULL;
+
+		free(temp);
+	}
+}
+
+
+/**
  * free_dlistint - free a `dlistint_t` doubly linked list
  * @head: head of LL
  */
@@ -75,3 +94,4 @@ void free_dlistint(stack_t *head)
 		tmp = next;
 	}
 }
+
