@@ -31,8 +31,8 @@ void add(stack_t **head, unsigned int stack_length)
 		return;
 
 	current->next->n = current->n + current->next->n;
-	pop(head);
-	stack_length += 1;
+	removes_from_top(head);
+	stack_length -= 1;
 }
 
 /**
@@ -73,7 +73,7 @@ void sub(stack_t **head, unsigned int stack_length)
 
 	result = num2 - num1;
 	current->next->n = result;
-	pop(head);
+	removes_from_top(head);
 	stack_length -= 1;
 }
 

@@ -97,6 +97,7 @@ void process_instructions(info_t *info)
 		{"pop", pop_func},
 		{"add", add_func},
 		{"sub", sub_func},
+		{"mul", mul_func},
 		{NULL, NULL}
 	};
 
