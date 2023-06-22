@@ -73,7 +73,8 @@ void sub(stack_t **head, unsigned int stack_length)
 
 	result = num2 - num1;
 	current->next->n = result;
-	removes_from_top(head);
+	*head = current;
+	removes_from_top(current);
 	stack_length -= 1;
 }
 
