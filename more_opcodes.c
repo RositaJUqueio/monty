@@ -1,5 +1,5 @@
 /* Authors: Rosita Uqueio, Israel Nanor */
-#include "monty"
+#include "monty.h"
 
 /**
  * pop_func - handles pop opcode.
