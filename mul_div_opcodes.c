@@ -70,7 +70,7 @@ void __div__(info_t *info)
 	{
 		free_all(info);
 		free_line_tokens(info);
-		prints_error_message_with_args("L%lu: can't div, division by zero", info);
+		prints_error_message_with_args("L%d: can't div, division by zero", info);
 	}
 
 	tmp2->n = tmp2->n / (*tmp1)->n;
