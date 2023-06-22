@@ -45,6 +45,7 @@ typedef struct instruction_s
  *  @fd: stream descriptor for open files
  *  @line_number: line number to be read
  *  @stack: stack data structure
+ *  @stack_length: the number of elements in the stack
  *  Description - global vars
 */
 typedef struct info_s
@@ -54,6 +55,7 @@ typedef struct info_s
 	char line[MAX_LINE_LENGTH];
 	unsigned int line_number;
 	stack_t *stack;
+	unsigned int stack_length;
 } info_t;
 info_t info;
 /* Function Prototypes*/
@@ -85,6 +87,10 @@ void pop_func(stack_t **stack, unsigned int line_number);
 void pop(stack_t **head);
 void pint(stack_t *top);
 void pint_func(stack_t **stack, unsigned int line_number);
+
+/* add and sub */
+void add(stack_t **stack);
+void add_func(stack_t **head, unsigned int line_number);
 
 /* erros */
 void prints_error_message_with_args(const char *error_message, info_t *info);

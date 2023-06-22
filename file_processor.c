@@ -11,6 +11,7 @@ void initialize_infos(info_t *info)
 	info->fd = NULL;
 	info->line_number = 0;
 	info->stack = NULL;
+	info->stack_length = 0;
 }
 
 /**
@@ -94,6 +95,7 @@ void process_instructions(info_t *info)
 		{"pall", pall_func},
 		{"pint", pint_func},
 		{"pop", pop_func},
+		{"add", add_func},
 		{NULL, NULL}
 	};
 
