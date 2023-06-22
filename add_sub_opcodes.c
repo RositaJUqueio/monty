@@ -26,17 +26,11 @@ void add_func(stack_t **head, unsigned int line_number)
 void add(stack_t **head)
 {
 	stack_t *current = *head;
-	int num1, num2, sum = 0;
 
 	if (current == NULL)
 		return;
 
-	num1 = current->n;
-	num2 = current->next->n;
-
-	sum = num1 + num2;
-	current->next->n = sum;
+	current->next->n =  current->n + current->next->n;
 	pop(head);
-	/*head = current->next;*/
 }
 
