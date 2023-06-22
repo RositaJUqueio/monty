@@ -20,8 +20,10 @@ void push_func(stack_t **stack, unsigned int line_number)
 
 		if (!is_digit || str_len > 10 || big_number)
 		{
-			free_all(pg_data);
+			/*free_all(pg_data);*/
 			prints_error_message_with_args("L%lu: usage: push integer", pg_data);
+			exit(1);
+			return;
 		}
 		push(stack, push_num);
 	}
