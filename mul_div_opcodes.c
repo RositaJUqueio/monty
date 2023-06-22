@@ -10,11 +10,9 @@ void mul_func(stack_t **head, unsigned int line_number)
 	info_t *pg_data = &info;
 
 	(void)line_number;
-
 	if (pg_data->stack_length < 2)
 	{
 		free_all(pg_data);
-		free_line_tokens(pg_data);
 		prints_error_message_with_args("L%lu: can't mul, stack too short", pg_data);
 	}
 	mul(head, pg_data->stack_length);
@@ -53,7 +51,6 @@ void div_func(stack_t **head, unsigned int line_number)
 	if (pg_data->stack_length < 2)
 	{
 		free_all(pg_data);
-		free_line_tokens(pg_data);
 		prints_error_message_with_args("L%lu: can't div, stack too short", pg_data);
 	}
 	__div__(pg_data);
