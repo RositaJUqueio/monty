@@ -37,6 +37,9 @@ void process_file(const char *file_path, info_t *info)
 	{
 		info->line_number += 1;
 		info->line[strcspn(info->line, "\n")] = '\0';
+		
+		if (!info->line)
+			return;
 
 		line_parser(info, info->line);
 		process_instructions(info);
