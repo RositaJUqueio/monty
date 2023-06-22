@@ -1,3 +1,4 @@
+/* Authors:  Rosita Uqueio & Israel Nanor */
 #include "monty.h"
 
 /**
