@@ -44,6 +44,7 @@ void pop(stack_t **head)
 void pint_func(stack_t **stack, unsigned int line_number)
 {
 	info_t *pg_data;
+
 	pg_data = &info;
 	(void)line_number;
 
