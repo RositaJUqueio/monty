@@ -2,7 +2,7 @@
 #include "monty"
 
 /**
- * pop_func - handles pop opcode
+ * pop_func - handles pop opcode.
  * @stack: head of stack data structure
  * @line_number: line number of instruction
  */
