@@ -77,3 +77,24 @@ void __div__(info_t *info)
 	info->stack_length -= 1;
 }
 
+
+/**
+ * mod_func - finds the modulo of thetop two stack element
+ * @head: head of stack
+ * @line_number: number of element in stack
+ */
+void mod_func(stack_t **head, unsigned int line_number)
+{
+	info_t *pg_data = &info;
+
+	(void)line_number;
+	(void)head;
+
+	if (pg_data->stack_length < 2)
+	{
+		free_all(pg_data);
+		prints_error_message_with_args("L%lu: can't mod, stack too short", pg_data);
+	}
+	mod(pg_data);
+}
+

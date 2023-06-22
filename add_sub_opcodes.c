@@ -78,3 +78,24 @@ void sub(stack_t **head, unsigned int stack_length)
 	stack_length -= 1;
 }
 
+/**
+ * mod - mod top two stack element
+ * @info: global var
+ */
+void mod(info_t *info)
+{
+	stack_t **tmp1, *tmp2;
+
+	tmp1 = &info->stack;
+	tmp2 = (*tmp1)->next;
+	if ((*tmp1)->n == 0)
+	{
+		free_all(info);
+		prints_error_message_with_args("L%lu: division by zero", info);
+	}
+
+	tmp2->n = tmp2->n % (*tmp1)->n;
+
+	removes_from_top(tmp1);
+	info->stack_length -= 1;
+}

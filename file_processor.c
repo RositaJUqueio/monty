@@ -101,6 +101,7 @@ void process_instructions(info_t *info)
 		{"div", div_func},
 		{"swap", swap_func},
 		{"nop", nop_func},
+		{"mod", mod_func},
 		{NULL, NULL}
 	};
 
