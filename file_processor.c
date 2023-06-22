@@ -99,6 +99,10 @@ void process_instructions(info_t *info)
 		{"sub", sub_func},
 		{"mul", mul_func},
 		{"div", div_func},
+		{"mod", mod_func},
+		{"swap", swap_func},
+		{"nop", nop_func},
+		{"#", nop_func},
 		{NULL, NULL}
 	};
 

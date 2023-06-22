@@ -10,11 +10,9 @@ void mul_func(stack_t **head, unsigned int line_number)
 	info_t *pg_data = &info;
 
 	(void)line_number;
-
 	if (pg_data->stack_length < 2)
 	{
 		free_all(pg_data);
-		free_line_tokens(pg_data);
 		prints_error_message_with_args("L%lu: can't mul, stack too short", pg_data);
 	}
 	mul(head, pg_data->stack_length);
@@ -53,7 +51,6 @@ void div_func(stack_t **head, unsigned int line_number)
 	if (pg_data->stack_length < 2)
 	{
 		free_all(pg_data);
-		free_line_tokens(pg_data);
 		prints_error_message_with_args("L%lu: can't div, stack too short", pg_data);
 	}
 	__div__(pg_data);
@@ -71,7 +68,6 @@ void __div__(info_t *info)
 	if ((*tmp1)->n == 0)
 	{
 		free_all(info);
-		free_line_tokens(info);
 		prints_error_message_with_args("L%lu: division by zero", info);
 	}
 
@@ -79,5 +75,26 @@ void __div__(info_t *info)
 
 	removes_from_top(tmp1);
 	info->stack_length -= 1;
+}
+
+
+/**
+ * mod_func - finds the modulo of thetop two stack element
+ * @head: head of stack
+ * @line_number: number of element in stack
+ */
+void mod_func(stack_t **head, unsigned int line_number)
+{
+	info_t *pg_data = &info;
+
+	(void)line_number;
+	(void)head;
+
+	if (pg_data->stack_length < 2)
+	{
+		free_all(pg_data);
+		prints_error_message_with_args("L%lu: can't mod, stack too short", pg_data);
+	}
+	mod(pg_data);
 }
 
