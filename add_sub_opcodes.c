@@ -94,7 +94,7 @@ void mod(info_t *info)
 		prints_error_message_with_args("L%lu: division by zero", info);
 	}
 
-	tmp2->n = tmp2->n % (*tmp1)->n;
+	tmp2->n %= (*tmp1)->n;
 
 	removes_from_top(tmp1);
 	info->stack_length -= 1;
