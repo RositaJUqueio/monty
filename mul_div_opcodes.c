@@ -11,7 +11,7 @@ void mul_func(stack_t **head, unsigned int line_number)
 
 	(void)line_number;
 
-	if (pg_data->stack_length < 2)
+	if (head == NULL || pg_data->stack_length < 2)
 	{
 		free_all(pg_data);
 		prints_error_message_with_args("L%lu: can't mul, stack too short", pg_data);
