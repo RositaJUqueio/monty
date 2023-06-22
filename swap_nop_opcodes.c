@@ -36,3 +36,14 @@ void swap(stack_t **head)
 	current->next->n = tmp;
 }
 
+/**
+ * nop_func - swaps top two elements
+ * @head: head of stack
+ * @line_number: number of stack elements
+ */
+void nop_func(stack_t **head, unsigned int line_number)
+{
+	(void)head;
+	(void)line_number;
+}
+
