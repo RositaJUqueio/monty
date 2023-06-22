@@ -36,6 +36,7 @@ void add(stack_t **head)
 
 	sum = num1 + num2;
 	current->next->n = sum;
-	*head = current->next;
+	pop(head);
+	/*head = current->next;*/
 }
 
