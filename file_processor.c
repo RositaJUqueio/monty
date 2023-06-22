@@ -102,13 +102,16 @@ void process_instructions(info_t *info)
 		{"mod", mod_func},
 		{"swap", swap_func},
 		{"nop", nop_func},
-		{"#", nop_func},
 		{NULL, NULL}
 	};
 
 	if (!info->line_tokens[0])
 		return;
-
+	if (info->line[0] == '#')
+	{
+		/*instructions[10].f(&(info->stack), info->line_number);*/
+		info->line_tokens[0] = "nop";
+	}
 	while (instructions[i].opcode != NULL)
 	{
 		if (strcmp(instructions[i].opcode, info->line_tokens[0]) == 0)
