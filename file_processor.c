@@ -54,7 +54,7 @@ void line_parser(info_t *info, char *line)
 {
 	int idx = 0, i = 0;
 	char *tokens, line_cpy[MAX_LINE_LENGTH];
-	char *delim = " $\t\n\r";
+	char *delim = " \n";
 
 	strcpy(line_cpy, line);
 	tokens = strtok(line_cpy, delim);
@@ -94,8 +94,11 @@ void process_instructions(info_t *info)
 		{"pall", pall_func},
 		{NULL, NULL}
 	};
+	
+	if (!info->line_tokens[0])
+		return;
 
-	while (info->line_tokens[0] && instructions[i].opcode != NULL)
+	while (instructions[i].opcode != NULL)
 	{
 		if (strcmp(instructions[i].opcode, info->line_tokens[0]) == 0)
 		{
