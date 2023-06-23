@@ -26,6 +26,7 @@ void push_func(stack_t **stack, unsigned int line_number)
 		}
 
 		push(stack, push_num);
+		pg_data->stack_length += 1;
 	}
 	else
 	{
