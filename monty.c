@@ -35,7 +35,8 @@ void free_line_tokens(info_t *info)
 		free(info->line_tokens[idx]);
 		idx++;
 	}
-	free(info->line_tokens);
+	if (info->line_tokens != NULL)
+		free(info->line_tokens);
 	info->line_tokens = NULL;
 }
 /**

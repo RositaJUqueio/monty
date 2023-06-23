@@ -40,7 +40,6 @@ void process_file(const char *file_path, info_t *info)
 
 		line_parser(info, info->line);
 		process_instructions(info);
-		free_line_tokens(info);
 	}
 	free_all(info);
 }
@@ -109,13 +108,17 @@ void process_instructions(info_t *info)
 	}
 
 	if (info->line_tokens[0][0] == '#')
-		info->line_tokens[0] = "nop";
+	{
+		nop_func(&(info->stack), info->line_number);
+		return;
+	}
 
 	while (instructions[i].opcode != NULL)
 	{
 		if (strcmp(instructions[i].opcode, info->line_tokens[0]) == 0)
 		{
 			instructions[i].f(&(info->stack), info->line_number);
+			free_line_tokens(info);
 			return;
 		}
 		i++;
