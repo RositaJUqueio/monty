@@ -111,6 +111,7 @@ void nop_func(stack_t **head, unsigned int line_number);
 
 /* pschr*/
 void pchar_func(stack_t **stack, unsigned int line_number);
+void pstr_func(stack_t **stack, unsigned int line_number);
 /* erros */
 void prints_error_message_with_args(const char *error_message, info_t *info);
 #endif /*MONTY_H*/
