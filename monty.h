@@ -99,8 +99,8 @@ void mul(stack_t **stack, unsigned int stack_len);
 void mul_func(stack_t **head, unsigned int line_number);
 void __div__(info_t *info);
 void div_func(stack_t **head, unsigned int st_len);
-void mod(info_t *info);
-void mod_func(stack_t **head, unsigned int line_number);
+void modu(info_t *info);
+void modu_func(stack_t **head, unsigned int line_number);
 
 /* swap & nop*/
 void swap(stack_t **head);
