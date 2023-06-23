@@ -80,6 +80,7 @@ void line_parser(info_t *info, char *line)
 	info->line_tokens[i] = NULL;
 
 }
+
 /**
  * process_instructions - handles instructions to be performed per opcode
  * @info: global program data
@@ -114,3 +115,4 @@ void process_instructions(info_t *info)
 	free_all(info);
 	prints_error_message_with_args("L%u: unknown instruction %s", info);
 }
+
