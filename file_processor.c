@@ -111,6 +111,7 @@ void process_instructions(info_t *info)
 	if (info->line_tokens[0][0] == '#')
 	{
 		nop_func(&(info->stack), info->line_number);
+		free(info->line_tokens);
 		return;
 	}
 
