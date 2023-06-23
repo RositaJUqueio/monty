@@ -91,7 +91,7 @@ void process_instructions(info_t *info)
 	int i = 0;
 
 	instruction_t instructions[] = {
-		{"push", push_func},
+		{"push", push_func}, {"pchar", pchar_func},
 		{"pall", pall_func}, {"pop", pop_func},
 		{"pint", pint_func}, {"swap", swap_func},
 		{"nop", nop_func}, {"sub", sub_func},
