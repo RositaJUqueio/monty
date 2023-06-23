@@ -28,6 +28,13 @@ int main(int argc, char *argv[])
  */
 void free_line_tokens(info_t *info)
 {
+	int idx = 0;
+
+	while (info->line_tokens != NULL && info->line_tokens[idx] != NULL)
+	{
+		free(info->line_tokens[idx]);
+		idx++;
+	}
 	free(info->line_tokens);
 	info->line_tokens = NULL;
 }

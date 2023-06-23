@@ -15,7 +15,8 @@ void push_func(stack_t **stack, unsigned int line_number)
 	{
 		str_len = strlen(pg_data->line_tokens[1]);
 		is_digit = _isdigit(pg_data->line_tokens[1]);
-		push_num = atoi(pg_data->line_tokens[1]);
+		if (is_digit)
+			push_num = atoi(pg_data->line_tokens[1]);
 		big_number = push_num > (int)INT_MAX;
 
 		if (!is_digit || str_len > 10 || big_number)

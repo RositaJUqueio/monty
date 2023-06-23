@@ -64,7 +64,7 @@ void line_parser(info_t *info, char *line)
 		idx++;
 	}
 
-	info->line_tokens = malloc(sizeof(char) * (idx + 1));
+	info->line_tokens = malloc(sizeof(char *) * (idx + 1));
 	if (info->line_tokens == NULL)
 	{	free_all(info);
 		prints_error_message("Error: malloc failed");
@@ -73,7 +73,7 @@ void line_parser(info_t *info, char *line)
 	tokens = strtok(line_cpy, delim);
 	while (i < 2 && tokens != NULL)
 	{
-		info->line_tokens[i] = tokens;
+		info->line_tokens[i] = _strdup(tokens);
 		tokens = strtok(NULL, delim);
 		i++;
 	}
@@ -96,7 +96,7 @@ void process_instructions(info_t *info)
 		{"pint", pint_func}, {"swap", swap_func},
 		{"nop", nop_func}, {"sub", sub_func},
 		{"add", add_func}, {"div", div_func},
-		{"mul", mul_func},
+		{"mul", mul_func}, {"pchar", pchar_func},
 		{NULL, NULL}
 	};
 
@@ -108,11 +108,6 @@ void process_instructions(info_t *info)
 		return;
 	}
 
-	if (strcmp("pchar", info->line_tokens[0]) == 0)
-	{
-		pchar_func(&(info->stack), info->line_number);
-		return;
-	}
 	if (info->line_tokens[0][0] == '#')
 		info->line_tokens[0] = "nop";
 
