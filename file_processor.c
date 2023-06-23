@@ -107,7 +107,7 @@ void process_instructions(info_t *info)
 		modu_func(&(info->stack), info->line_number);
 		return;
 	}
-	if (info->line[0] == '#')
+	if (info->line_tokens[0][0] == '#')
 		info->line_tokens[0] = "nop";
 
 	while (instructions[i].opcode != NULL)
