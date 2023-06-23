@@ -10,7 +10,6 @@ void modu_func(stack_t **head, unsigned int line_num)
 	info_t *pg_data = &info;
 	stack_t *tmp1, *tmp2;
 
-	(void)head;
 	(void)line_num;
 	if (pg_data->stack_length < 2)
 	{
