@@ -95,7 +95,7 @@ void process_instructions(info_t *info)
 		{"pint", pint_func}, {"swap", swap_func},
 		{"nop", nop_func}, {"sub", sub_func},
 		{"add", add_func}, {"div", div_func},
-		{"mul", mul_func}, {"pchar", pchar_func},
+		{"mul", mul_func},
 		{NULL, NULL}
 	};
 
@@ -104,6 +104,7 @@ void process_instructions(info_t *info)
 	if (strcmp("mod", info->line_tokens[0]) == 0)
 	{
 		modu_func(&(info->stack), info->line_number);
+		free_line_tokens(info);
 		return;
 	}
 
