@@ -101,7 +101,7 @@ void process_instructions(info_t *info)
 
 	if (!info->line_tokens[0])
 		return;
-	if (strcmp("mod", info->line_tokens[0]))
+	if (strcmp("mod", info->line_tokens[0]) == 0)
 	{
 		modu_func(&(info->stack), info->line_number);
 		return;

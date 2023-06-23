@@ -25,7 +25,7 @@ void modu_func(stack_t **head, unsigned int line_num)
 		prints_error_message_with_args("L%lu: division by zero", pg_data);
 	}
 	tmp2->n %= tmp1->n;
-	pop(&tmp1);
+	pop(head);
 	pg_data->stack_length -= 1;
 }
 
