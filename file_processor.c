@@ -94,6 +94,8 @@ void process_instructions(info_t *info)
 		{"pall", pall_func},
 		{"pop", pop_func},
 		{"pint", pint_func},
+		{"swap", swap_func},
+		{"nop", nop_func},
 		{NULL, NULL}
 	};
 
