@@ -56,6 +56,7 @@ typedef struct info_s
 	unsigned int line_number;
 	stack_t *stack;
 	unsigned int stack_length;
+	unsigned int is_queue;
 } info_t;
 info_t info;
 /* Function Prototypes*/
@@ -75,7 +76,7 @@ char *_strdup(const char *str);
 
 void pall_func(stack_t **stack, unsigned int line_number);
 void push_func(stack_t **stack, unsigned int line_number);
-void push(stack_t **stack, int num);
+void push(stack_t **stack, int num, unsigned int is_queue);
 void pall(stack_t **stack, int num);
 
 /* linked list */

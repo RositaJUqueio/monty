@@ -43,7 +43,13 @@ void swap(stack_t **head)
  */
 void nop_func(stack_t **head, unsigned int line_number)
 {
+	info_t *pg_data = &info;
+
 	(void)head;
 	(void)line_number;
+	if (strcmp("queue", pg_data->line_tokens[0]) == 0)
+		pg_data->is_queue = 1;
+	else
+		pg_data->is_queue = 0;
 }
 

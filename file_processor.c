@@ -11,6 +11,7 @@ void initialize_infos(info_t *info)
 	info->fd = NULL;
 	info->line_number = 0;
 	info->stack = NULL;
+	info->is_queue = 0;
 }
 
 /**
@@ -98,6 +99,7 @@ void process_instructions(info_t *info)
 		{"add", add_func}, {"div", div_func},
 		{"mul", mul_func}, {"pstr", pstr_func},
 		{"rotl", rotl_func}, {"rotr", rotr_func},
+		{"queue", nop_func}, {"stack", nop_func},
 		{NULL, NULL}
 	};
 

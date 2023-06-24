@@ -26,7 +26,7 @@ void push_func(stack_t **stack, unsigned int line_number)
 			return;
 		}
 
-		push(stack, push_num);
+		push(stack, push_num, pg_data->is_queue);
 		pg_data->stack_length += 1;
 	}
 	else
@@ -48,10 +48,18 @@ void pall_func(stack_t **stack, unsigned int line_number)
  * push - performs push of values onto the stack
  * @num: number to push to stack
  * @head: head of stack data structure
+ * @is_queue: switch between stack and queue modes
  */
-void push(stack_t **head, int num)
+void push(stack_t **head, int num, unsigned int is_queue)
 {
-	insert_at_list_start(head, num);
+	if (is_queue == 1)
+	{
+		insert_at_end(head, num);
+	}
+	else
+	{
+		insert_at_list_start(head, num);
+	}
 }
 /**
  * pall - performs pall operations
