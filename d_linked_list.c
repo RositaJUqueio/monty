@@ -77,7 +77,41 @@ void removes_from_top(stack_t **head)
 	}
 }
 
+/**
+ * insert_at_end - inserts nodes at the top of the stack
+ * @head: head of list to be inserted
+ * @num: number to be inserted
+ * Return:  the address of the new node
+ */
+stack_t  *insert_at_end(stack_t **head, int num)
+{
+	stack_t *current = *head;
+	stack_t *new_node;
 
+	new_node = malloc(sizeof(stack_t));
+	if (new_node == NULL)
+		return (NULL);
+	new_node->n = num;
+	new_node->next = NULL;
+	new_node->prev = NULL;
+
+	if (*head == NULL)
+	{
+		new_node->next = *head;
+		*head = new_node;
+	}
+	else
+	{
+		while (current->next != NULL)
+		{
+			current = current->next;
+		}
+		current->next = new_node;
+		new_node->prev =  current;
+		current = new_node;
+	}
+	return (new_node);
+}
 /**
  * free_dlistint - free a `dlistint_t` doubly linked list
  * @head: head of LL
